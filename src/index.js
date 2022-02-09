@@ -1,4 +1,5 @@
 const express = require("express");
+const {engine} = require("express-handlebars");
 const connectDB = require("./config/db");
 
 require("dotenv").config();
@@ -14,6 +15,10 @@ connectDB();
 
 //STATIC FOLDER
 app.use(express.static("static"));
+
+//Handlebars Middleware
+app.engine('.hbs', engine({extname: '.hbs'}));
+app.set('view engine', '.hbs');
 
 //ROUTES
 app.use("/", require("./routes/registration"));
