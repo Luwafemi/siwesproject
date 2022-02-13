@@ -3,8 +3,12 @@ const express = require("express")
 const router = express.Router()
 const restrict = require("../middleware/auth")
 
-router.get("/home", restrict, (req,res)=>{
-    res.sendFile(path.resolve(__dirname,"../public/home.html"))
+
+
+router.get("/logout", restrict, (req,res)=>{
+    req.session.destroy(function(){
+        res.redirect('/');
+      });
 
 })
 

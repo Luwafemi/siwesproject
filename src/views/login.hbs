@@ -1,0 +1,35 @@
+ <div class="navBar">
+      <h4>LOGO/Header</h4>
+    </div>
+
+    <div class="container">
+      <h4>LOGIN</h4>
+
+      <form class="" action="/" method="post">
+        <input required  type="text" name="username"  placeholder="Username">
+        {{#if usernameError}}
+          <p style="color: red;">Wrong username!</p>
+        {{/if}}
+        <input required  class="input2" type="password" name="password"  placeholder="Password" id="myInput"> 
+         {{#if passwordError}}
+          <p style="color: red;">Wrong password!</p>
+        {{/if}}
+        <input class="checkbox" type="checkbox" onclick="myFunction()">
+        <label for="">Show password</label>
+        {{!-- <a href="notAvailable">Forgot password?</a> --}}
+        <input  type ="submit" value = "Login" class="button">
+
+        <a class="admin" href="/notAvailable">Admin? Login</a>
+      </form>
+    </div>
+
+    <footer></footer>
+    <script>
+      function myFunction() {
+        let x = document.getElementById("myInput");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }     }  
+    </script>

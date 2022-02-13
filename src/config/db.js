@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
-// const { hashPassword } = require("../utils/util");
 
 //MONGO CONNECTION
 const connectDB = async () => {

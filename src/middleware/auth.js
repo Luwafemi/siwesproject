@@ -1,16 +1,12 @@
-module.exports = {
-  ensureAuth: function (req, res, next) {
-    if (req.isAuthenticated()) {
-      return next();
+
+  const restrict = (req, res, next)=> {
+    if (req.session.user) {
+      next();
     } else {
-      res.redirect("/");
+      req.session.error = 'Access denied!';
+      res.redirect('/');
     }
-  },
-  ensureGuest: function (req, res, next) {
-    if (req.isAuthenticated()) {
-      res.redirect("/dashboard");
-    } else {
-      return next();
-    }
-  },
-};
+  }
+  
+
+module.exports = restrict
